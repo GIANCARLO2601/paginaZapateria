@@ -14,7 +14,9 @@ if (isset($_POST['iniciarsesion'])) {  // Verifica si se ha enviado el formulari
 
         if ($resultado) {  // Verifica si la consulta se ejecutó correctamente
             if (mysqli_num_rows($resultado) > 0) {  // Si hay coincidencias
-                $mensaje = '<h3 class="ok">¡Inicio de sesión exitoso!</h3>';
+                // Redirige a insertaritems.php si el inicio es exitoso
+                header("Location: ./insertaritems.php");
+                exit();  // Asegúrate de terminar la ejecución del script
             } else {  // Si no hay coincidencias
                 $mensaje = '<h3 class="bad">¡Email o contraseña incorrectos!</h3>';
             }
